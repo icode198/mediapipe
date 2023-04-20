@@ -1,6 +1,5 @@
 <div align="center">
-<h1> ☝️☝️ <br/>
-Manitas</h1>
+<h1> ☝️☝️ </h1>
 Move your fingers in the air to interact with the web
 </div>
 <br/><br/><br/>
@@ -11,47 +10,9 @@ This is a (typescript/javascript) library that uses AI ([Google's Mediapipe](htt
 the position of fingers recorded from a webcam and emits HTML events similar to mouse or touch events (mousedown, mousemove, touchstart, touchmove, ...),
 so we can use our fingers to interact with the web.
 
-<div align="center">
-<video src="https://user-images.githubusercontent.com/154258/224558658-852015d9-ce86-4663-8c4a-f76588997151.mp4"></video>
-</div>
-
-# Getting started
-
-```
-npm install manitas
-```
-
-```js
-import { init } from "manitas";
-
-
-// In some async function
-await init();
-
-// Or as a promise
-init().then(...)
-```
-
-`init` takes some time because Machine Learning models can be large and take a moment to get everything needed to run. Also, in `init()` we ask for
-permission to use the camera and capture a video stream.
-
-And then you can listen to these events:
-```js
-document.addEventListener('gesturestart', listener);
-document.addEventListener('gesturemove', listener);
-document.addEventListener('gestureend', listener);
-document.addEventListener('airfingerstart', listener);
-document.addEventListener('airfingermove', listener);
-document.addEventListener('airfingerend', listener);
-```
-
 ### Examples
 
 Check out the [examples](examples/) folder:
-
-* [ui-react](examples/ui-react): Usage in React to select items, drag them around and trigger actions with gestures. [See it live](http://manitas-react.limenius.com).
-* [airpaint](examples/paint): Paint with your fingers in the air ([see demo](https://twitter.com/nacmartin/status/1634119535430082560)). 
-
 
 ## Events
 
@@ -76,8 +37,6 @@ export interface AirfingerEventParams {
   hand: Hand;        // Left or right
 }
 ```
-
-*Note: MediaPipe actually gives us more data. It gives us the position of 18 nodes of the hand (the joints). We are filtering data to extract the meaning we want. The data we extract may and will very likely change in next versions as we experiment with this.*
 
 ### Gestures
 
